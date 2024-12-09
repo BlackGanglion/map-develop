@@ -1,3 +1,5 @@
 /node_modules
 /config.ts
 .umi
+/data
+.DS_Store
