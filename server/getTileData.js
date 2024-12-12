@@ -1,20 +1,12 @@
+/**
+ * 根据层级下载整个图层的瓦片
+ */
+
 import fs from 'fs';
-import request from 'request';
+import download from 'download';
 
-const z = 6;
-const count = Math.pow(2, z + 1);
-
-async function downTileData(url, dist) {
-  return new Promise(function (reslove, reject) {
-    request.head(url, (err, res, body) => {
-      if (err) { reject(err); }
-      url && request(url).pipe(fs.createWriteStream(dist)).on('close', () => {
-        reslove();
-      })
-    })
-  });
-
-}
+const z = 4;
+const count = Math.pow(2, z);
 
 for (let x = 0; x < count / 2; x++) {
   for (let y = 0; y < count / 2; y++) {
@@ -27,6 +19,7 @@ for (let x = 0; x < count / 2; x++) {
       fs.mkdirSync(`../data/${z}/${x}`);
     }
 
-    await downTileData(`https://webst03.is.autonavi.com/appmaptile?style=6&x=${x}&y=${y}&z=${z}`, `../data/${z}/${x}/${y}.png`);
+    // await downTileData(`https://webst03.is.autonavi.com/appmaptile?style=6&x=${x}&y=${y}&z=${z}`, `../data/${z}/${x}/${y}.png`);
+    await download(`https://tile.openstreetmap.org/${z}/${x}/${y}.png`, `../data/${z}/${x}`);
   }
 }
