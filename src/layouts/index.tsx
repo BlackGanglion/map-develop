@@ -11,6 +11,9 @@ export default function Layout() {
         <li>
           <Link to="/leaflet">Leaflet</Link>
         </li>
+        <li>
+          <Link to="/mapbox">Mapbox</Link>
+        </li>
       </ul>
       <Outlet />
     </div>
