@@ -10,7 +10,7 @@ const Mapbox = () => {
   useEffect(() => {
     const map = new mapboxgl.Map({
       container: 'map', // container ID
-      style: 'mapbox://styles/mapbox/streets-v12', // style URL
+      style: 'mapbox://styles/blackganglion/cm4ps80vc006101su8ofl1z6q', // style URL
       center: [-74.5, 40], // starting position [lng, lat]
       zoom: 9, // starting zoom
     });
