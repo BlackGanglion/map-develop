@@ -5,7 +5,7 @@
 import fs from 'fs';
 import download from 'download';
 
-const z = 4;
+const z = 12;
 const count = Math.pow(2, z);
 
 for (let x = 0; x < count / 2; x++) {

@@ -9,16 +9,19 @@ import download from 'download';
 const TileLnglatTransformGaode = TileLnglatTransform.TileLnglatTransformGaode;
 
 const leftPoint = {
-  longitude: 114,
-  latitude: 23,
+  longitude: 6.651025,
+  latitude: 46.074497,
 }
 
 const rightPoint = {
-  longitude: 114.05,
-  latitude: 22.95,
+  longitude: 7.158946,
+  latitude: 45.682585,
 }
 
-for (let z = 0; z <= 18; z++) {
+const list = [14, 16];
+
+for (let index = 0; index < list.length; index++) {
+  const z = list[index];
   const leftResult = TileLnglatTransformGaode.lnglatToTile(leftPoint.longitude, leftPoint.latitude, z);
   const rightResult = TileLnglatTransformGaode.lnglatToTile(rightPoint.longitude, rightPoint.latitude, z);
 
@@ -36,8 +39,8 @@ for (let z = 0; z <= 18; z++) {
       }
 
       // await downTileData(`https://webst03.is.autonavi.com/appmaptile?style=6&x=${x}&y=${y}&z=${z}`, `../data/${z}/${x}/${y}.png`);
-      // await download(`https://tile.openstreetmap.org/${z}/${x}/${y}.png`, `../data/${z}/${x}`);
-      await download(`https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/${z}/${y}/${x}`, `../data/${z}/${x}`);
+      await download(`https://tile.openstreetmap.org/${z}/${x}/${y}.png`, `../data/${z}/${x}`);
+      // await download(`https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/${z}/${y}/${x}`, `../data/${z}/${x}`);
     }
   }
 }
