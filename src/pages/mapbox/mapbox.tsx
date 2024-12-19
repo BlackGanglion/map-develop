@@ -15,18 +15,16 @@ const Mapbox = () => {
       const map = new mapboxgl.Map({
         // style: 'mapbox://styles/blackganglion/cm4ps80vc006101su8ofl1z6q', // style URL
         style: 'mapbox://styles/mapbox/satellite-streets-v12',
-  
+
         container: 'map',
-        zoom: 16.12,
-        center: [-119.71815002555762, 37.71805350964638],
-        pitch: 22.442548201757614,
-        bearing: -21.246399999999426,
+        zoom: 14.010835765263757,
+        center: [-119.62979667500952, 37.73032742474979],
+        pitch: 59.44254820175759,
+        bearing: 20.35360000000128,
         // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
         // style: 'mapbox://styles/mapbox/standard'
       });
 
-      console.log(map);
-  
       map.on('style.load', () => {
         map.addSource('mapbox-dem', {
           'type': 'raster-dem',
@@ -37,25 +35,38 @@ const Mapbox = () => {
         // add the DEM source as a terrain layer with exaggerated height
         map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });
 
-        map.addSource("running-routes", {
+        map.addSource("trace", {
           type: "geojson",
-          // a reference to the converted data
-          // could come from a file, API, etc
+          lineMetrics: true,
           data: (data as any).data,
         });
-      
+
         map.addLayer({
-          id: "running-routes-line",
-          type: "line",
-          source: "running-routes",
+          type: 'line',
+          source: 'trace',
+          id: 'line',
           paint: {
-            "line-color": "#15cc09",
-            "line-width": 4,
+            'line-color': 'blue',
+            'line-width': 1
           },
+          layout: {
+            'line-cap': 'round',
+            'line-join': 'round',
+            'line-z-offset': 10
+          }
         })
       });
+
+      function printMapState() {
+        console.log("Zoom: " + map.getZoom());
+        console.log("Center: " + JSON.stringify(map.getCenter()));
+        console.log("Pitch: " + map.getPitch());
+        console.log("Bearing: " + map.getBearing());
+      }
+
+      map.on('moveend', printMapState);
     }
-      
+
   }, [data]);
 
   return (

@@ -17,7 +17,7 @@ const server = http.createServer((req, res) => {
   // 处理请求路径
   if (req.url === '/api/geojson') {
     // 读取本地 JSON 文件
-    const filePath = path.join(__dirname, '../route/TUOLUMNEMEADOWSOutdoorClimb20240427081229.json');
+    const filePath = path.join(__dirname, '../route/TUOLUMNEMEADOWSMulti-Abschn.20241119080426.json');
     fs.readFile(filePath, 'utf-8', (err, data) => {
       if (err) {
         res.statusCode = 500;
