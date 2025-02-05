@@ -16,6 +16,7 @@
   - 预处理，提前把瓦片图片都处理好
   - http://base_url/tms/1.0.0/ {tileset} / {z} / {x} / {y} .png
 * WMTS（Web Map Tile Service），类似 TMS，遵循 OGC 标准，具有统一格式
+* MVT（Mapbox Vector Tiles），返回 矢量瓦片（如 Protocol Buffers 格式）
 * Vector Tiles，矢量瓦片
 * GeoJSON，单独绘制图层
 

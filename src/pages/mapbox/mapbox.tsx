@@ -17,10 +17,10 @@ const Mapbox = () => {
         style: 'mapbox://styles/mapbox/satellite-streets-v12',
 
         container: 'map',
-        zoom: 14.010835765263757,
-        center: [-119.62979667500952, 37.73032742474979],
-        pitch: 59.44254820175759,
-        bearing: 20.35360000000128,
+        zoom: 12.13677902205691,
+        center: [11.05562895964988, 47.419526884419895],
+        pitch: 44.62271649269611,
+        bearing: -151.49447725668517,
         // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
         // style: 'mapbox://styles/mapbox/standard'
       });
@@ -33,7 +33,7 @@ const Mapbox = () => {
           'maxzoom': 14
         });
         // add the DEM source as a terrain layer with exaggerated height
-        map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });
+        map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 2 });
 
         map.addSource("trace", {
           type: "geojson",
@@ -47,7 +47,7 @@ const Mapbox = () => {
           id: 'line',
           paint: {
             'line-color': 'blue',
-            'line-width': 1
+            'line-width': 2,
           },
           layout: {
             'line-cap': 'round',
