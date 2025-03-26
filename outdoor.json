@@ -11,16 +11,24 @@
   "pitch": 0,
   "sources": {
     "contours": {
-      "url": "https://api.maptiler.com/tiles/contours-v2/tiles.json?key=Sn9LieXokx0E2dmX04Yj",
+      "url": "https://api.maptiler.com/tiles/contours-v2/tiles.json?key=7i91gY35BEeGABjau3SO",
       "type": "vector"
     },
     "maptiler_planet": {
-      "url": "https://api.maptiler.com/tiles/v3/tiles.json?key=Sn9LieXokx0E2dmX04Yj",
+      "url": "https://api.maptiler.com/tiles/v3/tiles.json?key=7i91gY35BEeGABjau3SO",
       "type": "vector"
+    },
+    "outdoor": {
+      "url": "https://api.maptiler.com/tiles/outdoor/tiles.json?key=7i91gY35BEeGABjau3SO",
+      "type": "vector"
+    },
+    "terrain-rgb": {
+      "url": "https://api.maptiler.com/tiles/terrain-rgb-v2/tiles.json?key=7i91gY35BEeGABjau3SO",
+      "type": "raster-dem"
     }
   },
   "sprite": "https://api.maptiler.com/maps/outdoor-v2/sprite",
-  "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key=Sn9LieXokx0E2dmX04Yj",
+  "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key=7i91gY35BEeGABjau3SO",
   "layers": [
     {
       "id": "Background",
@@ -130,7 +138,7 @@
       "source-layer": "landuse",
       "maxzoom": 16,
       "filter": ["in", "class", "residential", "suburb", "neighbourhood"],
-      "layout": {"visibility": "visible"},
+      "layout": {"visibility": "none"},
       "paint": {
         "fill-color": {
           "stops": [[6, "hsla(0, 0%, 71%, 0.3)"], [16, "hsla(0, 0%, 89%, 0.3)"]]
@@ -145,7 +153,7 @@
       "source-layer": "landuse",
       "minzoom": 10,
       "filter": ["in", "class", "industrial", "quarry"],
-      "layout": {"visibility": "visible"},
+      "layout": {"visibility": "none"},
       "paint": {"fill-color": "hsl(31, 54%, 92%)", "fill-opacity": 0.5}
     },
     {
@@ -156,7 +164,7 @@
       "source-layer": "landuse",
       "minzoom": 10,
       "filter": ["in", "class", "commercial", "retail", "stadium"],
-      "layout": {"visibility": "visible"},
+      "layout": {"visibility": "none"},
       "paint": {"fill-color": "hsl(31, 54%, 92%)", "fill-opacity": 0.5}
     },
     {
@@ -167,7 +175,7 @@
       "source-layer": "landuse",
       "minzoom": 10,
       "filter": ["==", "class", "military"],
-      "layout": {"visibility": "visible"},
+      "layout": {"visibility": "none"},
       "paint": {
         "fill-color": "hsl(76, 17%, 60%)",
         "fill-opacity": [
@@ -192,7 +200,7 @@
       "source-layer": "landuse",
       "minzoom": 10,
       "filter": ["==", "class", "cemetery"],
-      "layout": {"visibility": "visible"},
+      "layout": {"visibility": "none"},
       "paint": {"fill-color": "hsl(89, 16%, 81%)", "fill-opacity": 1}
     },
     {
@@ -203,7 +211,7 @@
       "source-layer": "landuse",
       "minzoom": 10,
       "filter": ["==", "class", "hospital"],
-      "layout": {"visibility": "visible"},
+      "layout": {"visibility": "none"},
       "paint": {"fill-color": "hsl(322, 50%, 91%)", "fill-opacity": 0.5}
     },
     {
@@ -213,8 +221,31 @@
       "source-layer": "landuse",
       "minzoom": 10,
       "filter": ["in", "class", "pitch", "playground", "stadium"],
-      "layout": {},
+      "layout": {"visibility": "none"},
       "paint": {"fill-color": "hsl(95, 57%, 91%)"}
+    },
+    {
+      "id": "Hillshade",
+      "type": "hillshade",
+      "source": "terrain-rgb",
+      "minzoom": 3,
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "hillshade-accent-color": "hsl(98, 35%, 86%)",
+        "hillshade-exaggeration": {"stops": [[6, 0.4], [14, 0.35], [18, 0.25]]},
+        "hillshade-highlight-color": "hsl(20, 13%, 68%)",
+        "hillshade-shadow-color": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          0,
+          "hsl(9, 3%, 41%)",
+          13,
+          "hsl(9, 0%, 0%)",
+          15,
+          "hsl(9, 3%, 41%)"
+        ]
+      }
     },
     {
       "id": "Park",
@@ -614,7 +645,7 @@
         ["in", "$type", "LineString", "Polygon"],
         ["==", "class", "ferry"]
       ],
-      "layout": {"line-join": "round", "visibility": "visible"},
+      "layout": {"line-join": "round", "visibility": "none"},
       "paint": {
         "line-color": "hsl(217, 49%, 69%)",
         "line-dasharray": [2, 2],
@@ -1226,7 +1257,7 @@
       "layout": {
         "line-cap": "round",
         "line-join": "round",
-        "visibility": "visible"
+        "visibility": "none"
       },
       "paint": {
         "line-color": {
@@ -1254,7 +1285,7 @@
       "source": "maptiler_planet",
       "source-layer": "building",
       "minzoom": 13,
-      "layout": {"visibility": "visible"},
+      "layout": {"visibility": "none"},
       "paint": {
         "fill-antialias": true,
         "fill-color": [
@@ -1267,6 +1298,924 @@
           "hsl(0, 0%, 72%)"
         ],
         "fill-outline-color": "hsl(0, 0%, 77%)"
+      }
+    },
+    {
+      "id": "Trails outline",
+      "type": "line",
+      "metadata": {},
+      "source": "outdoor",
+      "source-layer": "trail",
+      "minzoom": 11,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        [
+          "all",
+          [
+            "any",
+            ["!has", "color"],
+            [
+              "in",
+              "color",
+              "black",
+              "blue",
+              "brown",
+              "green",
+              "orange",
+              "purple",
+              "red"
+            ]
+          ],
+          ["in", "class", "foot", "hiking"]
+        ]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "miter",
+        "line-miter-limit": 3,
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-blur": 0.5,
+        "line-color": "hsla(0, 0%, 100%, 0.75)",
+        "line-offset": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          11,
+          0,
+          14,
+          [
+            "match",
+            ["get", "color"],
+            "orange",
+            0.25,
+            "purple",
+            0.75,
+            "black",
+            1.25,
+            "brown",
+            1.75,
+            "blue",
+            2.25,
+            "green",
+            2.75,
+            "yellow",
+            3.25,
+            0
+          ],
+          18,
+          [
+            "match",
+            ["get", "color"],
+            "orange",
+            1,
+            "purple",
+            2,
+            "black",
+            3,
+            "brown",
+            4,
+            "blue",
+            5,
+            "green",
+            6,
+            "yellow",
+            8,
+            0
+          ]
+        ],
+        "line-opacity": 1,
+        "line-width": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          11,
+          ["case", ["==", ["get", "color"], null], 0, 2],
+          12,
+          ["case", ["==", ["get", "color"], null], 1.5, 3],
+          14,
+          ["case", ["==", ["get", "color"], null], 2.5, 4],
+          18,
+          ["case", ["==", ["get", "color"], null], 4, 8]
+        ]
+      }
+    },
+    {
+      "id": "Bicycle outline",
+      "type": "line",
+      "source": "outdoor",
+      "source-layer": "trail",
+      "minzoom": 11,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["==", "class", "bicycle"],
+        ["!=", "network", ""]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "miter",
+        "line-miter-limit": 3,
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "hsla(0, 0%, 100%,0.75)",
+        "line-offset": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          13,
+          0,
+          14,
+          -1,
+          17,
+          -7
+        ],
+        "line-opacity": [
+          "step",
+          ["zoom"],
+          0,
+          6,
+          ["match", ["get", "network"], ["icn", "ncn"], 1, 0],
+          13,
+          1
+        ],
+        "line-width": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          11,
+          3,
+          14,
+          4,
+          15,
+          4.5,
+          18,
+          6
+        ]
+      }
+    },
+    {
+      "id": "Other trails",
+      "type": "line",
+      "metadata": {},
+      "source": "outdoor",
+      "source-layer": "trail",
+      "minzoom": 10,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["!has", "color"],
+        ["!in", "class", "bicycle", "horse", "via_ferrata", "wheelchair"]
+      ],
+      "layout": {"line-join": "round", "visibility": "visible"},
+      "paint": {
+        "line-color": "hsl(24, 10%, 60%)",
+        "line-dasharray": [5, 2],
+        "line-opacity": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          9,
+          0,
+          10,
+          0.2,
+          11,
+          1
+        ],
+        "line-width": [
+          "interpolate",
+          ["exponential", 1.2],
+          ["zoom"],
+          13,
+          0.75,
+          16,
+          1,
+          20,
+          2
+        ]
+      }
+    },
+    {
+      "id": "Bicycle local",
+      "type": "line",
+      "source": "outdoor",
+      "source-layer": "trail",
+      "minzoom": 11,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["==", "class", "bicycle"],
+        ["!in", "network", "icn", "ncn", ""]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "miter",
+        "line-miter-limit": 3,
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "hsl(306, 80%, 64%)",
+        "line-dasharray": [1.5, 2],
+        "line-offset": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          13,
+          0,
+          14,
+          -1,
+          17,
+          -7
+        ],
+        "line-opacity": 1,
+        "line-width": [
+          "interpolate",
+          ["exponential", 1],
+          ["zoom"],
+          11,
+          0.5,
+          14,
+          2,
+          18,
+          3
+        ]
+      }
+    },
+    {
+      "id": "Yellow trail",
+      "type": "line",
+      "metadata": {},
+      "source": "outdoor",
+      "source-layer": "trail",
+      "minzoom": 10,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["==", "color", "yellow"],
+        ["!=", "class", "bicycle"]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "miter",
+        "line-miter-limit": {"stops": [[9, 1], [14, 3]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "hsl(58, 100%, 50%)",
+        "line-offset": [
+          "interpolate",
+          ["exponential", 1],
+          ["zoom"],
+          11,
+          0,
+          14,
+          3.25,
+          18,
+          8
+        ],
+        "line-opacity": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          9,
+          0,
+          10,
+          0.2,
+          11,
+          1
+        ],
+        "line-width": [
+          "interpolate",
+          ["exponential", 1],
+          ["zoom"],
+          10,
+          2,
+          12,
+          2.5,
+          14,
+          2,
+          18,
+          3
+        ]
+      }
+    },
+    {
+      "id": "Green trail",
+      "type": "line",
+      "metadata": {},
+      "source": "outdoor",
+      "source-layer": "trail",
+      "minzoom": 10,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["==", "color", "green"],
+        ["!=", "class", "bicycle"]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "miter",
+        "line-miter-limit": 3,
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "hsl(95, 66%, 38%)",
+        "line-offset": [
+          "interpolate",
+          ["exponential", 1],
+          ["zoom"],
+          11,
+          0,
+          14,
+          2.75,
+          18,
+          6
+        ],
+        "line-opacity": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          9,
+          0,
+          10,
+          0.2,
+          11,
+          1
+        ],
+        "line-width": [
+          "interpolate",
+          ["exponential", 1],
+          ["zoom"],
+          10,
+          2,
+          12,
+          2.5,
+          14,
+          2,
+          18,
+          3
+        ]
+      }
+    },
+    {
+      "id": "Blue trail",
+      "type": "line",
+      "metadata": {},
+      "source": "outdoor",
+      "source-layer": "trail",
+      "minzoom": 10,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["==", "color", "blue"],
+        ["!=", "class", "bicycle"]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "miter",
+        "line-miter-limit": {"stops": [[9, 2], [14, 3]]},
+        "line-round-limit": 1.05,
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "hsl(217, 71%, 51%)",
+        "line-offset": [
+          "interpolate",
+          ["exponential", 1],
+          ["zoom"],
+          11,
+          0,
+          14,
+          2.25,
+          18,
+          5
+        ],
+        "line-opacity": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          9,
+          0,
+          10,
+          0.2,
+          11,
+          1
+        ],
+        "line-width": [
+          "interpolate",
+          ["exponential", 1],
+          ["zoom"],
+          10,
+          2,
+          12,
+          2.5,
+          14,
+          2,
+          18,
+          3
+        ]
+      }
+    },
+    {
+      "id": "Brown trail",
+      "type": "line",
+      "metadata": {},
+      "source": "outdoor",
+      "source-layer": "trail",
+      "minzoom": 10,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["==", "color", "brown"],
+        ["!=", "class", "bicycle"]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "miter",
+        "line-miter-limit": 3,
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "hsl(26, 39%, 41%)",
+        "line-offset": [
+          "interpolate",
+          ["exponential", 1],
+          ["zoom"],
+          11,
+          0,
+          14,
+          1.75,
+          18,
+          4
+        ],
+        "line-opacity": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          9,
+          0,
+          10,
+          0.2,
+          11,
+          1
+        ],
+        "line-width": [
+          "interpolate",
+          ["exponential", 1],
+          ["zoom"],
+          10,
+          2,
+          12,
+          2.5,
+          14,
+          2,
+          18,
+          3
+        ]
+      }
+    },
+    {
+      "id": "Black trail",
+      "type": "line",
+      "metadata": {},
+      "source": "outdoor",
+      "source-layer": "trail",
+      "minzoom": 10,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["==", "color", "black"],
+        ["!=", "class", "bicycle"]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "miter",
+        "line-miter-limit": 3,
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "hsl(0, 0%, 18%)",
+        "line-offset": [
+          "interpolate",
+          ["exponential", 1],
+          ["zoom"],
+          11,
+          0,
+          14,
+          1.25,
+          18,
+          3
+        ],
+        "line-opacity": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          9,
+          0,
+          10,
+          0.2,
+          11,
+          1
+        ],
+        "line-width": [
+          "interpolate",
+          ["exponential", 1],
+          ["zoom"],
+          10,
+          2,
+          12,
+          2.5,
+          14,
+          2,
+          18,
+          3
+        ]
+      }
+    },
+    {
+      "id": "Purple trail",
+      "type": "line",
+      "metadata": {},
+      "source": "outdoor",
+      "source-layer": "trail",
+      "minzoom": 10,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["==", "color", "purple"],
+        ["!=", "class", "bicycle"]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "miter",
+        "line-miter-limit": {"stops": [[9, 8], [14, 3]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "hsl(281, 66%, 59%)",
+        "line-offset": [
+          "interpolate",
+          ["exponential", 1],
+          ["zoom"],
+          11,
+          0,
+          14,
+          0.75,
+          18,
+          2
+        ],
+        "line-opacity": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          9,
+          0,
+          10,
+          0.2,
+          11,
+          1
+        ],
+        "line-width": [
+          "interpolate",
+          ["exponential", 1],
+          ["zoom"],
+          10,
+          2,
+          12,
+          2.5,
+          14,
+          2,
+          18,
+          3
+        ]
+      }
+    },
+    {
+      "id": "Orange trail",
+      "type": "line",
+      "metadata": {},
+      "source": "outdoor",
+      "source-layer": "trail",
+      "minzoom": 10,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["==", "color", "orange"],
+        ["!=", "class", "bicycle"]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "miter",
+        "line-miter-limit": {"stops": [[9, 8], [12, 12], [13, 16], [14, 3]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "hsl(35, 100%, 49%)",
+        "line-offset": [
+          "interpolate",
+          ["exponential", 1],
+          ["zoom"],
+          11,
+          0,
+          14,
+          0.75,
+          18,
+          1
+        ],
+        "line-opacity": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          9,
+          0,
+          10,
+          0.2,
+          11,
+          1
+        ],
+        "line-width": [
+          "interpolate",
+          ["exponential", 1],
+          ["zoom"],
+          10,
+          2,
+          12,
+          2.5,
+          14,
+          2,
+          18,
+          3
+        ]
+      }
+    },
+    {
+      "id": "Red trail",
+      "type": "line",
+      "metadata": {},
+      "source": "outdoor",
+      "source-layer": "trail",
+      "minzoom": 10,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["==", "color", "red"],
+        ["!=", "class", "bicycle"]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "bevel",
+        "line-miter-limit": {"stops": [[9, 1], [14, 3]]},
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "hsl(10, 100%, 50%)",
+        "line-offset": 0,
+        "line-opacity": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          9,
+          0,
+          10,
+          0.2,
+          11,
+          1
+        ],
+        "line-width": [
+          "interpolate",
+          ["exponential", 1],
+          ["zoom"],
+          10,
+          2,
+          12,
+          2.5,
+          14,
+          2,
+          18,
+          3
+        ]
+      }
+    },
+    {
+      "id": "Longdistance trail outline",
+      "type": "line",
+      "source": "outdoor",
+      "source-layer": "trail",
+      "minzoom": 5,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["in", "network", "iwn", "nwn"],
+        ["has", "ref"]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "line-miter-limit": 3,
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "hsla(0, 100%, 100%, 0.75)",
+        "line-width": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          5,
+          0,
+          8,
+          2,
+          14,
+          4,
+          18,
+          8
+        ]
+      }
+    },
+    {
+      "id": "Longdistance trail",
+      "type": "line",
+      "source": "outdoor",
+      "source-layer": "trail",
+      "minzoom": 5,
+      "maxzoom": 22,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["in", "network", "iwn", "nwn"],
+        ["has", "ref"]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "miter",
+        "line-miter-limit": 3,
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          10,
+          "hsl(10, 80%, 64%)",
+          14,
+          "hsl(10, 98%, 41%)"
+        ],
+        "line-opacity": 1,
+        "line-width": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          5,
+          0.5,
+          8,
+          1.5,
+          10,
+          2,
+          12,
+          2.5,
+          14,
+          2,
+          18,
+          3
+        ]
+      }
+    },
+    {
+      "id": "Via ferrata outline",
+      "type": "line",
+      "metadata": {},
+      "source": "outdoor",
+      "source-layer": "trail",
+      "minzoom": 12,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["==", "class", "via_ferrata"]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "hsl(10, 98%, 41%)",
+        "line-opacity": 1,
+        "line-width": [
+          "interpolate",
+          ["exponential", 1],
+          ["zoom"],
+          14,
+          1.7,
+          18,
+          3
+        ]
+      }
+    },
+    {
+      "id": "Via ferrata",
+      "type": "line",
+      "metadata": {},
+      "source": "outdoor",
+      "source-layer": "trail",
+      "minzoom": 12,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["==", "class", "via_ferrata"]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "round",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "hsl(0, 100%, 100%)",
+        "line-dasharray": [0.5, 2],
+        "line-opacity": 1,
+        "line-width": [
+          "interpolate",
+          ["exponential", 1],
+          ["zoom"],
+          14,
+          1.7,
+          18,
+          3
+        ]
+      }
+    },
+    {
+      "id": "Via ferrata symbol",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "trail",
+      "minzoom": 17,
+      "filter": ["==", "class", "via_ferrata"],
+      "layout": {
+        "icon-anchor": "bottom",
+        "symbol-placement": "line",
+        "symbol-spacing": 20,
+        "text-field": ".",
+        "text-font": ["Roboto Bold", "Noto Sans Bold"],
+        "text-size": 16,
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "hsl(10,98%,40%)",
+        "text-halo-color": "hsl(0,0%,100%)",
+        "text-halo-width": 1
+      }
+    },
+    {
+      "id": "Bicycle longdistance",
+      "type": "line",
+      "source": "outdoor",
+      "source-layer": "trail",
+      "minzoom": 5,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["in", "network", "icn", "ncn"],
+        ["has", "ref"]
+      ],
+      "layout": {
+        "line-cap": "round",
+        "line-join": "miter",
+        "line-miter-limit": 3,
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "hsl(307, 100%, 63%)",
+        "line-offset": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          13,
+          0,
+          14,
+          -1,
+          17,
+          -7
+        ],
+        "line-width": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          5,
+          0.5,
+          8,
+          1.5,
+          10,
+          2,
+          12,
+          2.5,
+          14,
+          2,
+          18,
+          3
+        ]
       }
     },
     {
@@ -1938,6 +2887,98 @@
       }
     },
     {
+      "id": "Outdoor water",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "outdoor_poi",
+      "minzoom": 12,
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        [
+          "in",
+          "class",
+          "drinking_water",
+          "fountain",
+          "hot_spring",
+          "spring",
+          "waterfall"
+        ]
+      ],
+      "layout": {
+        "icon-anchor": "center",
+        "icon-image": [
+          "match",
+          ["get", "class"],
+          ["drinking_water", "fountain", "hot_spring", "spring"],
+          ["get", "class"],
+          "waterfall",
+          "triangle",
+          ""
+        ],
+        "icon-offset": [0, 0],
+        "icon-optional": false,
+        "icon-rotate": ["match", ["get", "class"], "waterfall", 180, 0],
+        "icon-size": 0.75,
+        "icon-text-fit": "none",
+        "symbol-sort-key": ["match", ["get", "class"], "waterfall", 0, 1],
+        "text-anchor": "top",
+        "text-field": "{name}",
+        "text-font": ["Roboto Condensed Regular", "Noto Sans Regular"],
+        "text-max-width": 10,
+        "text-optional": true,
+        "text-padding": 30,
+        "text-rotate": 0,
+        "text-size": ["interpolate", ["linear"], ["zoom"], 16, 11, 22, 14],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-color": "hsl(207, 58%, 49%)",
+        "icon-halo-blur": 0.2,
+        "icon-halo-color": "hsl(0, 0%, 100%)",
+        "icon-halo-width": ["interpolate", ["linear"], ["zoom"], 9, 1, 14, 1.5],
+        "icon-opacity": [
+          "step",
+          ["zoom"],
+          1,
+          12,
+          ["match", ["get", "class"], "waterfall", 1, 0],
+          16,
+          [
+            "match",
+            ["get", "class"],
+            ["fountain", "hot_spring", "waterfall"],
+            1,
+            0
+          ],
+          17,
+          1
+        ],
+        "text-color": "hsl(207, 58%, 49%)",
+        "text-halo-blur": 0.2,
+        "text-halo-color": "hsl(0, 0%, 100%)",
+        "text-halo-width": ["interpolate", ["linear"], ["zoom"], 9, 1, 14, 1.5],
+        "text-opacity": [
+          "step",
+          ["zoom"],
+          1,
+          12,
+          ["match", ["get", "class"], "waterfall", 1, 0],
+          16,
+          [
+            "match",
+            ["get", "class"],
+            ["fountain", "hot_spring", "waterfall"],
+            1,
+            0
+          ],
+          17,
+          1
+        ],
+        "text-translate": [0, 7]
+      }
+    },
+    {
       "id": "Transport",
       "type": "symbol",
       "metadata": {},
@@ -2391,6 +3432,247 @@
           14,
           ["match", ["get", "class"], ["museum", "place_of_worship"], 1, 0],
           16,
+          1
+        ]
+      }
+    },
+    {
+      "id": "Outdoor",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "outdoor_poi",
+      "minzoom": 13,
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        [
+          "in",
+          "class",
+          "bench",
+          "board",
+          "camp_site",
+          "cave_entrance",
+          "fireplace",
+          "first_aid",
+          "fortress",
+          "guidepost",
+          "hut",
+          "info_office",
+          "map",
+          "memorial",
+          "monument",
+          "mountain_rescue",
+          "observation_tower",
+          "picnic_site",
+          "rental",
+          "ruins",
+          "shelter",
+          "viewpoint"
+        ]
+      ],
+      "layout": {
+        "icon-anchor": "bottom",
+        "icon-image": [
+          "match",
+          ["get", "class"],
+          [
+            "bench",
+            "board",
+            "guidepost",
+            "hut",
+            "monument",
+            "observation_tower",
+            "picnic_site",
+            "shelter",
+            "viewpoint"
+          ],
+          ["get", "class"],
+          "camp_site",
+          "campsite",
+          "cave_entrance",
+          "square",
+          "fireplace",
+          "campfire",
+          ["first_aid", "mountain_rescue"],
+          "hospital",
+          ["fortress", "ruins"],
+          "castle",
+          "info_office",
+          "information",
+          "map",
+          "board",
+          "memorial",
+          "statue",
+          ["case", ["has", "class"], "dot", ""]
+        ],
+        "icon-optional": false,
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 14, 0.8, 22, 1],
+        "symbol-sort-key": [
+          "match",
+          ["get", "class"],
+          "camp_site",
+          0,
+          "guidepost",
+          0,
+          "info_office",
+          0,
+          "hut",
+          0,
+          "viewpoint",
+          0,
+          "cave_entrance",
+          0,
+          1
+        ],
+        "text-anchor": "top",
+        "text-field": "{name}",
+        "text-font": ["Roboto Condensed Regular", "Noto Sans Regular"],
+        "text-max-width": 6,
+        "text-optional": true,
+        "text-size": ["interpolate", ["linear"], ["zoom"], 16, 11, 22, 14],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-color": "hsl(27, 97%, 14%)",
+        "icon-halo-blur": 0.5,
+        "icon-halo-color": "hsl(0, 0%, 100%)",
+        "icon-halo-width": 1.5,
+        "icon-opacity": [
+          "step",
+          ["zoom"],
+          1,
+          0,
+          0,
+          13,
+          ["match", ["get", "class"], ["guidepost"], 1, 0],
+          14,
+          [
+            "match",
+            ["get", "class"],
+            [
+              "info_office",
+              "cave_entrance",
+              "guidepost",
+              "fortress",
+              "hut",
+              "ruins",
+              "viewpoint"
+            ],
+            1,
+            0
+          ],
+          15,
+          [
+            "match",
+            ["get", "class"],
+            [
+              "info_office",
+              "camp_site",
+              "cave_entrance",
+              "fortress",
+              "guidepost",
+              "hut",
+              "ruins",
+              "memorial",
+              "monument",
+              "viewpoint"
+            ],
+            1,
+            0
+          ],
+          16,
+          [
+            "match",
+            ["get", "class"],
+            [
+              "camp_site",
+              "cave_entrance",
+              "first_aid",
+              "fortress",
+              "guidepost",
+              "hut",
+              "info_office",
+              "memorial",
+              "monument",
+              "mountain_rescue",
+              "rental",
+              "ruins",
+              "shelter",
+              "viewpoint"
+            ],
+            1,
+            0
+          ],
+          17,
+          ["match", ["get", "class"], ["bench"], 0, 1],
+          18,
+          1
+        ],
+        "text-color": "hsl(27, 97%, 14%)",
+        "text-halo-blur": 0.5,
+        "text-halo-color": "hsl(0, 0%, 100%)",
+        "text-halo-width": 1.5,
+        "text-opacity": [
+          "step",
+          ["zoom"],
+          1,
+          0,
+          0,
+          13,
+          ["match", ["get", "class"], ["guidepost"], 1, 0],
+          14,
+          [
+            "match",
+            ["get", "class"],
+            ["info_office", "cave_entrance", "fortress", "guidepost", "ruins"],
+            1,
+            0
+          ],
+          15,
+          [
+            "match",
+            ["get", "class"],
+            [
+              "info_office",
+              "camp_site",
+              "cave_entrance",
+              "fortress",
+              "guidepost",
+              "hut",
+              "ruins",
+              "memorial",
+              "monument",
+              "viewpoint"
+            ],
+            1,
+            0
+          ],
+          16,
+          [
+            "match",
+            ["get", "class"],
+            [
+              "camp_site",
+              "cave_entrance",
+              "first_aid",
+              "fortress",
+              "guidepost",
+              "hut",
+              "info_office",
+              "memorial",
+              "monument",
+              "mountain_rescue",
+              "rental",
+              "ruins",
+              "shelter",
+              "viewpoint"
+            ],
+            1,
+            0
+          ],
+          17,
+          ["match", ["get", "class"], ["board"], 0, 1],
+          18,
           1
         ]
       }
@@ -2990,6 +4272,98 @@
           11,
           1
         ]
+      }
+    },
+    {
+      "id": "Longdistance trail labels",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "trail",
+      "minzoom": 11,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["in", "network", "iwn", "nwn"],
+        ["has", "ref"]
+      ],
+      "layout": {
+        "symbol-placement": "line",
+        "text-field": ["coalesce", ["get", "name:en"], ["get", "name"]],
+        "text-font": [
+          "step",
+          ["zoom"],
+          ["literal", ["Roboto Bold", "Noto Sans Bold"]],
+          15,
+          ["literal", ["Roboto Regular", "Noto Sans Regular"]]
+        ],
+        "text-size": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          12,
+          10,
+          14,
+          11,
+          16,
+          13
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-color": "hsl(10, 98%, 41%)",
+        "icon-halo-color": "hsl(0, 0%, 100%)",
+        "icon-halo-width": 2,
+        "text-color": "hsl(10, 98%, 41%)",
+        "text-halo-color": "hsl(0, 0%, 100%)",
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "Bicycle longdistance labels",
+      "type": "symbol",
+      "source": "outdoor",
+      "source-layer": "trail",
+      "minzoom": 11,
+      "filter": [
+        "all",
+        ["==", "$type", "LineString"],
+        ["in", "network", "icn", "ncn"],
+        ["has", "ref"]
+      ],
+      "layout": {
+        "symbol-placement": "line",
+        "text-anchor": "center",
+        "text-field": ["coalesce", ["get", "name:en"], ["get", "name"]],
+        "text-font": [
+          "step",
+          ["zoom"],
+          ["literal", ["Roboto Bold", "Noto Sans Bold"]],
+          15,
+          ["literal", ["Roboto Regular", "Noto Sans Regular"]]
+        ],
+        "text-offset": [0, 0.2],
+        "text-size": [
+          "interpolate",
+          ["linear", 1],
+          ["zoom"],
+          12,
+          10,
+          14,
+          11,
+          16,
+          13
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-color": "hsl(306, 80%, 64%)",
+        "icon-halo-blur": 0,
+        "icon-halo-color": "hsl(0, 0%, 100%)",
+        "icon-halo-width": 2,
+        "text-color": "hsl(306, 80%, 64%)",
+        "text-halo-blur": 0,
+        "text-halo-color": "hsl(0, 0%, 100%)",
+        "text-halo-width": 2
       }
     },
     {
