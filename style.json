@@ -1755,6 +1755,275 @@
         "text-halo-color": "rgba(255,255,255,0.7)",
         "text-halo-width": 1
       }
+    },
+    {
+      "id": "Volcano labels (US)",
+      "type": "symbol",
+      "source": "vmtiles",
+      "source-layer": "mountain_peak",
+      "minzoom": 9,
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        ["in", "class", "volcano"],
+        ["has", "name"],
+        ["has", "customary_ft"]
+      ],
+      "layout": {
+        "icon-image": "triangle",
+        "icon-size": [
+          "interpolate",
+          ["linear", 1],
+          ["zoom"],
+          9,
+          ["case", ["==", ["get", "rank"], 1], 0.9, 0.7],
+          14,
+          ["case", ["==", ["get", "rank"], 1], 1, 0.8]
+        ],
+        "symbol-sort-key": ["to-number", ["get", "rank"]],
+        "text-anchor": "top",
+        "text-field": [
+          "concat",
+          ["coalesce", ["get", "name:en"], ["get", "name"]],
+          "\n",
+          ["get", "ele_ft"],
+          " ft"
+        ],
+        "text-font": ["Roboto Condensed Regular", "Noto Sans Regular"],
+        "text-max-width": {"stops": [[12, 4], [15, 4]]},
+        "text-offset": [0, 0.7],
+        "text-size": [
+          "interpolate",
+          ["exponential", 1],
+          ["zoom"],
+          7,
+          9,
+          11,
+          10,
+          13,
+          13
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-color": "hsl(32, 100%, 40%)",
+        "icon-halo-blur": 0.2,
+        "icon-halo-color": "hsl(0, 0%, 100%)",
+        "icon-halo-width": 1,
+        "text-color": "hsl(32, 100%, 40%)",
+        "text-halo-blur": {"stops": [[11, 2], [15, 0]]},
+        "text-halo-color": "hsl(0, 0%, 100%)",
+        "text-halo-width": ["interpolate", ["linear"], ["zoom"], 9, 1, 14, 1.5]
+      }
+    },
+    {
+      "id": "Volcano labels",
+      "type": "symbol",
+      "source": "vmtiles",
+      "source-layer": "mountain_peak",
+      "minzoom": 9,
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        ["in", "class", "volcano"],
+        ["has", "name"],
+        ["!has", "customary_ft"]
+      ],
+      "layout": {
+        "icon-image": "triangle",
+        "icon-size": [
+          "interpolate",
+          ["linear", 1],
+          ["zoom"],
+          9,
+          ["case", ["==", ["get", "rank"], 1], 0.9, 0.7],
+          14,
+          ["case", ["==", ["get", "rank"], 1], 1, 0.8]
+        ],
+        "symbol-sort-key": ["to-number", ["get", "rank"]],
+        "text-anchor": "top",
+        "text-field": [
+          "concat",
+          ["coalesce", ["get", "name:en"], ["get", "name"]],
+          "\n",
+          ["get", "ele"],
+          " m"
+        ],
+        "text-font": ["Roboto Condensed Regular", "Noto Sans Regular"],
+        "text-max-width": {"stops": [[12, 4], [15, 4]]},
+        "text-offset": [0, 0.7],
+        "text-size": [
+          "interpolate",
+          ["exponential", 1],
+          ["zoom"],
+          7,
+          9,
+          11,
+          10,
+          13,
+          13
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-color": "hsl(32, 100%, 40%)",
+        "icon-halo-blur": 0.2,
+        "icon-halo-color": "hsl(0, 0%, 100%)",
+        "icon-halo-width": 1,
+        "text-color": "hsl(32, 100%, 40%)",
+        "text-halo-blur": {"stops": [[11, 2], [15, 0]]},
+        "text-halo-color": "hsl(0, 0%, 100%)",
+        "text-halo-width": ["interpolate", ["linear"], ["zoom"], 9, 1, 14, 1.5]
+      }
+    },
+    {
+      "id": "Peak labels (US)",
+      "type": "symbol",
+      "source": "vmtiles",
+      "source-layer": "mountain_peak",
+      "minzoom": 9,
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        ["in", "class", "peak"],
+        ["has", "name"],
+        ["has", "customary_ft"]
+      ],
+      "layout": {
+        "icon-image": "triangle",
+        "icon-size": [
+          "interpolate",
+          ["linear", 1],
+          ["zoom"],
+          9,
+          ["case", ["==", ["get", "rank"], 1], 0.9, 0.7],
+          14,
+          ["case", ["==", ["get", "rank"], 1], 1, 0.8]
+        ],
+        "symbol-sort-key": ["to-number", ["get", "rank"]],
+        "text-anchor": "top",
+        "text-field": [
+          "concat",
+          ["coalesce", ["get", "name:en"], ["get", "name"]],
+          "\n",
+          ["get", "ele_ft"],
+          " ft"
+        ],
+        "text-font": ["Roboto Condensed Regular", "Noto Sans Regular"],
+        "text-max-width": {"stops": [[12, 4], [15, 4]]},
+        "text-offset": [0, 0.7],
+        "text-size": [
+          "interpolate",
+          ["exponential", 1],
+          ["zoom"],
+          7,
+          9,
+          11,
+          10,
+          13,
+          13
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-color": "hsl(23, 57%, 24%)",
+        "icon-halo-blur": 0.2,
+        "icon-halo-color": "hsl(0, 0%, 100%)",
+        "icon-halo-width": 1,
+        "text-color": "hsl(23, 57%, 24%)",
+        "text-halo-blur": {"stops": [[11, 2], [15, 0]]},
+        "text-halo-color": "hsl(0, 0%, 100%)",
+        "text-halo-width": ["interpolate", ["linear"], ["zoom"], 9, 1, 14, 1.5]
+      }
+    },
+    {
+      "id": "Peak labels",
+      "type": "symbol",
+      "source": "vmtiles",
+      "source-layer": "mountain_peak",
+      "minzoom": 9,
+      "filter": [
+        "all",
+        ["==", "$type", "Point"],
+        ["in", "class", "peak"],
+        ["has", "name"],
+        ["!has", "customary_ft"]
+      ],
+      "layout": {
+        "icon-image": "triangle",
+        "icon-size": [
+          "interpolate",
+          ["linear", 1],
+          ["zoom"],
+          9,
+          ["case", ["==", ["get", "rank"], 1], 0.9, 0.7],
+          14,
+          ["case", ["==", ["get", "rank"], 1], 1, 0.8]
+        ],
+        "symbol-sort-key": ["to-number", ["get", "rank"]],
+        "text-anchor": "top",
+        "text-field": [
+          "concat",
+          ["coalesce", ["get", "name:en"], ["get", "name"]],
+          "\n",
+          ["get", "ele"],
+          " m"
+        ],
+        "text-font": ["Roboto Condensed Regular", "Noto Sans Regular"],
+        "text-max-width": {"stops": [[12, 4], [15, 4]]},
+        "text-offset": [0, 0.7],
+        "text-size": [
+          "interpolate",
+          ["exponential", 1],
+          ["zoom"],
+          7,
+          9,
+          11,
+          10,
+          13,
+          13
+        ],
+        "visibility": "visible"
+      },
+      "paint": {
+        "icon-color": "hsl(23, 57%, 24%)",
+        "icon-halo-blur": 0.2,
+        "icon-halo-color": "hsl(0, 0%, 100%)",
+        "icon-halo-width": ["interpolate", ["linear"], ["zoom"], 9, 1, 14, 1.5],
+        "text-color": "hsl(23, 57%, 24%)",
+        "text-halo-blur": {"stops": [[11, 2], [15, 0]]},
+        "text-halo-color": "hsl(0, 0%, 100%)",
+        "text-halo-width": ["interpolate", ["linear"], ["zoom"], 9, 1, 14, 1.5]
+      }
+    },
+    {
+      "id": "Cliff line",
+      "type": "line",
+      "source": "vmtiles",
+      "source-layer": "mountain_peak",
+      "minzoom": 13,
+      "filter": ["==", "$type", "LineString"],
+      "paint": {
+        "line-color": "hsl(0, 10%, 55%)",
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 13, 0.5, 17, 0.8],
+        "line-width": ["interpolate", ["linear"], ["zoom"], 15, 0.5, 22, 4]
+      }
+    },
+    {
+      "id": "Cliff",
+      "type": "line",
+      "source": "vmtiles",
+      "source-layer": "mountain_peak",
+      "minzoom": 13,
+      "filter": ["==", "$type", "LineString"],
+      "layout": {"line-join": "miter"},
+      "paint": {
+        "line-color": "hsl(0, 10%, 55%)",
+        "line-dasharray": [0.2, 1],
+        "line-offset": ["interpolate", ["linear"], ["zoom"], 16, 1.2, 22, 5],
+        "line-opacity": ["interpolate", ["linear"], ["zoom"], 13, 0.3, 17, 0.6],
+        "line-width": ["interpolate", ["linear"], ["zoom"], 16, 2, 22, 10]
+      }
     }
   ],
   "id": "osm-liberty"
