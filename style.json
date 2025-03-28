@@ -1387,7 +1387,7 @@
       "metadata": {},
       "source": "vmtiles",
       "source-layer": "transportation_name",
-      "filter": ["all", ["in", "class", "ferry"]],
+      "filter": ["all", ["!in", "class", "ferry"]],
       "layout": {
         "symbol-placement": "line",
         "text-anchor": "center",
@@ -2161,6 +2161,7 @@
           "class",
           "aerialway",
           "bicycle",
+          "bicycle_rental",
           "bicycle_parking",
           "car",
           "car_rental",
@@ -2182,6 +2183,7 @@
           [
             "aerialway",
             "bicycle",
+            "bicycle_rental",
             "bicycle_parking",
             "car",
             "car_rental",
@@ -2289,8 +2291,7 @@
         ["==", "$type", "Point"],
         [
           "all",
-          ["in", "class", "bar", "beer", "cafe", "fast_food", "restaurant"],
-          ["has", "name"]
+          ["in", "class", "bar", "beer", "cafe", "fast_food", "restaurant"]
         ]
       ],
       "layout": {
@@ -2470,7 +2471,8 @@
           "picnic_site",
           "shelter",
           "town_hall",
-          "zoo"
+          "zoo",
+          "toilets"
         ],
         ["!in", "subclass", "dormitory"]
       ],
@@ -2487,7 +2489,8 @@
             "picnic_site",
             "shelter",
             "town_hall",
-            "zoo"
+            "zoo",
+            "toilets"
           ],
           ["get", "class"],
           ""
