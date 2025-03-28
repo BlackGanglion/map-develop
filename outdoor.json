@@ -50,7 +50,7 @@
     {
       "id": "Scrub",
       "type": "fill",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "globallandcover",
       "maxzoom": 9,
       "filter": ["==", "class", "scrub"],
@@ -64,7 +64,7 @@
     {
       "id": "Tree",
       "type": "fill",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "globallandcover",
       "minzoom": 0,
       "maxzoom": 9,
@@ -75,7 +75,7 @@
     {
       "id": "Forest",
       "type": "fill",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "globallandcover",
       "minzoom": 0,
       "maxzoom": 9,
@@ -87,7 +87,7 @@
       "id": "Wood",
       "type": "fill",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "landcover",
       "minzoom": 9,
       "filter": ["==", "class", "wood"],
@@ -98,7 +98,7 @@
       "id": "Grass",
       "type": "fill",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "landcover",
       "minzoom": 0,
       "filter": ["==", "class", "grass"],
@@ -109,7 +109,7 @@
       "id": "Sand",
       "type": "fill",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "landcover",
       "minzoom": 9,
       "filter": ["==", "class", "sand"],
@@ -120,7 +120,7 @@
       "id": "Glacier",
       "type": "fill",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "landcover",
       "minzoom": 0,
       "filter": ["==", "class", "ice"],
@@ -134,7 +134,7 @@
     {
       "id": "Residential",
       "type": "fill",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "landuse",
       "maxzoom": 16,
       "filter": ["in", "class", "residential", "suburb", "neighbourhood"],
@@ -149,7 +149,7 @@
       "id": "Industrial",
       "type": "fill",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "landuse",
       "minzoom": 10,
       "filter": ["in", "class", "industrial", "quarry"],
@@ -160,7 +160,7 @@
       "id": "Commercial",
       "type": "fill",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "landuse",
       "minzoom": 10,
       "filter": ["in", "class", "commercial", "retail", "stadium"],
@@ -171,7 +171,7 @@
       "id": "Military",
       "type": "fill",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "landuse",
       "minzoom": 10,
       "filter": ["==", "class", "military"],
@@ -196,7 +196,7 @@
       "id": "Cemetery",
       "type": "fill",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "landuse",
       "minzoom": 10,
       "filter": ["==", "class", "cemetery"],
@@ -207,7 +207,7 @@
       "id": "Hospital",
       "type": "fill",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "landuse",
       "minzoom": 10,
       "filter": ["==", "class", "hospital"],
@@ -217,7 +217,7 @@
     {
       "id": "Stadium",
       "type": "fill",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "landuse",
       "minzoom": 10,
       "filter": ["in", "class", "pitch", "playground", "stadium"],
@@ -250,7 +250,7 @@
     {
       "id": "Park",
       "type": "fill",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "park",
       "minzoom": 6,
       "maxzoom": 12,
@@ -283,7 +283,7 @@
     {
       "id": "Park outline",
       "type": "line",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "park",
       "minzoom": 8,
       "maxzoom": 16,
@@ -409,7 +409,7 @@
     {
       "id": "Cliff line",
       "type": "line",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "mountain_peak",
       "minzoom": 13,
       "filter": ["==", "$type", "LineString"],
@@ -422,7 +422,7 @@
     {
       "id": "Cliff",
       "type": "line",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "mountain_peak",
       "minzoom": 13,
       "filter": ["==", "$type", "LineString"],
@@ -514,7 +514,7 @@
     {
       "id": "River tunnel",
       "type": "line",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "waterway",
       "minzoom": 3,
       "filter": ["==", "brunnel", "tunnel"],
@@ -544,7 +544,7 @@
       "id": "River",
       "type": "line",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "waterway",
       "minzoom": 3,
       "filter": ["!=", "brunnel", "tunnel"],
@@ -571,7 +571,7 @@
     {
       "id": "Water",
       "type": "fill",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "water",
       "layout": {"visibility": "visible"},
       "paint": {
@@ -591,7 +591,7 @@
       "id": "Aeroway",
       "type": "fill",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "aeroway",
       "minzoom": 11,
       "filter": ["==", "$type", "Polygon"],
@@ -602,7 +602,7 @@
       "id": "Runway",
       "type": "line",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "aeroway",
       "minzoom": 11,
       "filter": [
@@ -620,7 +620,7 @@
       "id": "Taxiway",
       "type": "line",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "aeroway",
       "minzoom": 11,
       "filter": [
@@ -637,7 +637,7 @@
     {
       "id": "Ferry",
       "type": "line",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "transportation",
       "minzoom": 6,
       "filter": [
@@ -667,7 +667,7 @@
       "id": "Tunnel path",
       "type": "line",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "transportation",
       "minzoom": 13,
       "filter": [
@@ -687,7 +687,7 @@
       "id": "Tunnel",
       "type": "line",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "transportation",
       "minzoom": 5,
       "filter": [
@@ -783,7 +783,7 @@
     {
       "id": "Railway tunnel",
       "type": "line",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "transportation",
       "filter": [
         "all",
@@ -814,7 +814,7 @@
     {
       "id": "Railway tunnel dash",
       "type": "line",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "transportation",
       "filter": [
         "all",
@@ -853,7 +853,7 @@
       "id": "Bridge",
       "type": "fill",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "transportation",
       "filter": [
         "all",
@@ -871,7 +871,7 @@
       "id": "Pier",
       "type": "fill",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "transportation",
       "filter": ["all", ["==", "$type", "Polygon"], ["==", "class", "pier"]],
       "layout": {"visibility": "visible"},
@@ -881,7 +881,7 @@
       "id": "Road network",
       "type": "line",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "transportation",
       "minzoom": 5,
       "filter": [
@@ -987,7 +987,7 @@
       "id": "Steps",
       "type": "line",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "transportation",
       "minzoom": 15,
       "filter": [
@@ -1008,7 +1008,7 @@
       "id": "Track",
       "type": "line",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "transportation",
       "minzoom": 12,
       "filter": [
@@ -1038,7 +1038,7 @@
       "id": "Path minor",
       "type": "line",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "transportation",
       "minzoom": 12,
       "filter": [
@@ -1070,7 +1070,7 @@
       "id": "Path",
       "type": "line",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "transportation",
       "minzoom": 12,
       "filter": [
@@ -1101,7 +1101,7 @@
     {
       "id": "Pedestrian outline",
       "type": "line",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "transportation",
       "minzoom": 13,
       "filter": [
@@ -1135,7 +1135,7 @@
       "id": "Pedestrian",
       "type": "line",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "transportation",
       "minzoom": 13,
       "filter": [
@@ -1156,7 +1156,7 @@
       "id": "Minor railway",
       "type": "line",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "transportation",
       "filter": ["in", "subclass", "tram", "light_rail"],
       "layout": {"visibility": "visible"},
@@ -1169,7 +1169,7 @@
       "id": "Minor railway hatching",
       "type": "line",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "transportation",
       "filter": ["in", "subclass", "tram", "light_rail"],
       "layout": {"visibility": "visible"},
@@ -1182,7 +1182,7 @@
     {
       "id": "Major railway",
       "type": "line",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "transportation",
       "filter": [
         "all",
@@ -1213,7 +1213,7 @@
     {
       "id": "Major railway dash",
       "type": "line",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "transportation",
       "filter": [
         "all",
@@ -1250,7 +1250,7 @@
     {
       "id": "Military limit",
       "type": "line",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "landuse",
       "minzoom": 10,
       "filter": ["==", "class", "military"],
@@ -1282,7 +1282,7 @@
     {
       "id": "Building",
       "type": "fill",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "building",
       "minzoom": 13,
       "layout": {"visibility": "none"},
@@ -2221,7 +2221,7 @@
     {
       "id": "Minor lift",
       "type": "line",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "transportation",
       "minzoom": 12,
       "filter": [
@@ -2239,7 +2239,7 @@
     {
       "id": "Minor lift dash",
       "type": "line",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "transportation",
       "minzoom": 12,
       "filter": [
@@ -2266,7 +2266,7 @@
     {
       "id": "Chair lift",
       "type": "line",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "transportation",
       "minzoom": 12,
       "filter": [
@@ -2284,7 +2284,7 @@
     {
       "id": "Chair lift dash",
       "type": "line",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "transportation",
       "minzoom": 12,
       "filter": [
@@ -2311,7 +2311,7 @@
     {
       "id": "Cable car",
       "type": "line",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "transportation",
       "minzoom": 12,
       "filter": [
@@ -2328,7 +2328,7 @@
     {
       "id": "Cable car dash",
       "type": "line",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "transportation",
       "minzoom": 12,
       "filter": [
@@ -2354,7 +2354,7 @@
     {
       "id": "Aerialway labels",
       "type": "symbol",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "transportation_name",
       "minzoom": 13,
       "filter": ["==", "class", "aerialway"],
@@ -2399,7 +2399,7 @@
     {
       "id": "Road labels",
       "type": "symbol",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "transportation_name",
       "minzoom": 8,
       "filter": [
@@ -2450,7 +2450,7 @@
       "id": "Other border",
       "type": "line",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "boundary",
       "minzoom": 3,
       "maxzoom": 13,
@@ -2489,7 +2489,7 @@
       "id": "Disputed border",
       "type": "line",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "boundary",
       "filter": [
         "all",
@@ -2525,7 +2525,7 @@
       "id": "Country border",
       "type": "line",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "boundary",
       "filter": [
         "all",
@@ -2559,7 +2559,7 @@
     {
       "id": "River labels",
       "type": "symbol",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "waterway",
       "minzoom": 13,
       "filter": ["has", "name"],
@@ -2590,7 +2590,7 @@
       "id": "Lakeline labels",
       "type": "symbol",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "water_name",
       "minzoom": 0,
       "layout": {
@@ -2617,7 +2617,7 @@
       "id": "Ocean labels",
       "type": "symbol",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "water_name",
       "minzoom": 0,
       "maxzoom": 4,
@@ -2648,7 +2648,7 @@
       "id": "Sea labels",
       "type": "symbol",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "water_name",
       "minzoom": 3,
       "filter": ["all", ["==", "class", "sea"], ["has", "name"]],
@@ -2689,7 +2689,7 @@
       "id": "Lake labels",
       "type": "symbol",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "water_name",
       "minzoom": 9,
       "filter": ["all", ["==", "class", "lake"], ["has", "name"]],
@@ -2719,7 +2719,7 @@
     {
       "id": "Outdoor shop",
       "type": "symbol",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "poi",
       "minzoom": 17,
       "filter": [
@@ -2757,7 +2757,7 @@
     {
       "id": "Sport",
       "type": "symbol",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "poi",
       "minzoom": 14,
       "filter": [
@@ -2982,7 +2982,7 @@
       "id": "Transport",
       "type": "symbol",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "poi",
       "minzoom": 14,
       "filter": [
@@ -3113,7 +3113,7 @@
     {
       "id": "Food",
       "type": "symbol",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "poi",
       "minzoom": 15,
       "filter": [
@@ -3179,7 +3179,7 @@
     {
       "id": "Park labels",
       "type": "symbol",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "poi",
       "minzoom": 14,
       "filter": ["all", ["==", "class", "park"], ["has", "name"]],
@@ -3212,7 +3212,7 @@
       "id": "Healthcare",
       "type": "symbol",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "poi",
       "minzoom": 14,
       "filter": [
@@ -3287,7 +3287,7 @@
     {
       "id": "Tourism",
       "type": "symbol",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "poi",
       "minzoom": 14,
       "filter": [
@@ -3368,7 +3368,7 @@
     {
       "id": "Culture",
       "type": "symbol",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "poi",
       "minzoom": 14,
       "filter": [
@@ -3681,7 +3681,7 @@
       "id": "Station",
       "type": "symbol",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "poi",
       "minzoom": 12,
       "filter": ["all", ["in", "class", "bus", "railway"], ["has", "name"]],
@@ -3770,7 +3770,7 @@
     {
       "id": "Castle",
       "type": "symbol",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "poi",
       "minzoom": 14,
       "filter": ["all", ["==", "class", "castle"]],
@@ -3804,7 +3804,7 @@
     {
       "id": "Volcano labels (US)",
       "type": "symbol",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "mountain_peak",
       "minzoom": 9,
       "filter": [
@@ -3864,7 +3864,7 @@
     {
       "id": "Volcano labels",
       "type": "symbol",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "mountain_peak",
       "minzoom": 9,
       "filter": [
@@ -3924,7 +3924,7 @@
     {
       "id": "Peak labels (US)",
       "type": "symbol",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "mountain_peak",
       "minzoom": 9,
       "filter": [
@@ -3984,7 +3984,7 @@
     {
       "id": "Peak labels",
       "type": "symbol",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "mountain_peak",
       "minzoom": 9,
       "filter": [
@@ -4045,7 +4045,7 @@
       "id": "Place labels",
       "type": "symbol",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "place",
       "minzoom": 8,
       "filter": [
@@ -4141,7 +4141,7 @@
     {
       "id": "Village labels",
       "type": "symbol",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "place",
       "minzoom": 8,
       "maxzoom": 17,
@@ -4175,7 +4175,7 @@
       "id": "Airport labels",
       "type": "symbol",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "aerodrome_label",
       "minzoom": 8,
       "filter": ["in", "class", "international", "other", "regional"],
@@ -4369,7 +4369,7 @@
     {
       "id": "Protected area labels",
       "type": "symbol",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "park",
       "minzoom": 11,
       "maxzoom": 17,
@@ -4420,7 +4420,7 @@
       "id": "Town labels",
       "type": "symbol",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "place",
       "minzoom": 6,
       "maxzoom": 16,
@@ -4461,7 +4461,7 @@
     {
       "id": "State labels",
       "type": "symbol",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "place",
       "minzoom": 3,
       "maxzoom": 9,
@@ -4512,7 +4512,7 @@
     {
       "id": "National park labels",
       "type": "symbol",
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "park",
       "minzoom": 6,
       "maxzoom": 12,
@@ -4571,7 +4571,7 @@
       "id": "City labels",
       "type": "symbol",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "place",
       "minzoom": 5,
       "maxzoom": 16,
@@ -4632,7 +4632,7 @@
       "id": "Country labels",
       "type": "symbol",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "place",
       "minzoom": 2,
       "maxzoom": 10,
@@ -4721,7 +4721,7 @@
       "id": "Continent labels",
       "type": "symbol",
       "metadata": {},
-      "source": "maptiler_planet",
+      "source": "vmtiles",
       "source-layer": "place",
       "maxzoom": 2,
       "filter": ["==", "class", "continent"],
