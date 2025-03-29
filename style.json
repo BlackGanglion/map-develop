@@ -2172,7 +2172,9 @@
           "motorcycle_parking",
           "parking",
           "parking_garage",
-          "parking_paid"
+          "parking_paid",
+          "charging_station",
+          "taxi"
         ]
       ],
       "layout": {
@@ -2194,7 +2196,9 @@
             "motorcycle_parking",
             "parking",
             "parking_garage",
-            "parking_paid"
+            "parking_paid",
+            "charging_station",
+            "taxi"
           ],
           ["get", "class"],
           ["case", ["has", "class"], "dot", ""]
