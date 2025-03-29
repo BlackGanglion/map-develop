@@ -2295,7 +2295,7 @@
         ["==", "$type", "Point"],
         [
           "all",
-          ["in", "class", "bar", "beer", "cafe", "fast_food", "restaurant"]
+          ["in", "class", "bar", "beer", "cafe", "fast_food", "restaurant", "drinking_water"]
         ]
       ],
       "layout": {
@@ -2304,7 +2304,7 @@
         "icon-image": [
           "match",
           ["get", "class"],
-          ["bar", "beer", "cafe", "fast_food", "restaurant"],
+          ["bar", "beer", "cafe", "fast_food", "restaurant", "drinking_water"],
           ["get", "class"],
           ""
         ],
