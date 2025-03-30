@@ -1645,7 +1645,7 @@
         "text-anchor": "top",
         "text-field": [
           "concat",
-          ["coalesce", ["get", "name:en"], ["get", "name"]],
+          ["get", "name"],
           "\n",
           ["get", "ele"],
           " m"
