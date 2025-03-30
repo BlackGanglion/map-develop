@@ -1619,7 +1619,7 @@
       }
     },
     {
-      "id": "Volcano labels (US)",
+      "id": "Peak",
       "type": "symbol",
       "source": "vmtiles",
       "source-layer": "mountain_peak",
@@ -1627,189 +1627,8 @@
       "filter": [
         "all",
         ["==", "$type", "Point"],
-        ["in", "class", "volcano"],
-        ["has", "name"],
-        ["has", "customary_ft"]
-      ],
-      "layout": {
-        "icon-image": "triangle",
-        "icon-size": [
-          "interpolate",
-          ["linear", 1],
-          ["zoom"],
-          9,
-          ["case", ["==", ["get", "rank"], 1], 0.9, 0.7],
-          14,
-          ["case", ["==", ["get", "rank"], 1], 1, 0.8]
-        ],
-        "symbol-sort-key": ["to-number", ["get", "rank"]],
-        "text-anchor": "top",
-        "text-field": [
-          "concat",
-          ["coalesce", ["get", "name:en"], ["get", "name"]],
-          "\n",
-          ["get", "ele_ft"],
-          " ft"
-        ],
-        "text-font": ["Roboto Condensed Regular", "Noto Sans Regular"],
-        "text-max-width": {"stops": [[12, 4], [15, 4]]},
-        "text-offset": [0, 0.7],
-        "text-size": [
-          "interpolate",
-          ["exponential", 1],
-          ["zoom"],
-          7,
-          9,
-          11,
-          10,
-          13,
-          13
-        ],
-        "visibility": "visible"
-      },
-      "paint": {
-        "icon-color": "hsl(32, 100%, 40%)",
-        "icon-halo-blur": 0.2,
-        "icon-halo-color": "hsl(0, 0%, 100%)",
-        "icon-halo-width": 1,
-        "text-color": "hsl(32, 100%, 40%)",
-        "text-halo-blur": {"stops": [[11, 2], [15, 0]]},
-        "text-halo-color": "hsl(0, 0%, 100%)",
-        "text-halo-width": ["interpolate", ["linear"], ["zoom"], 9, 1, 14, 1.5]
-      }
-    },
-    {
-      "id": "Volcano labels",
-      "type": "symbol",
-      "source": "vmtiles",
-      "source-layer": "mountain_peak",
-      "minzoom": 9,
-      "filter": [
-        "all",
-        ["==", "$type", "Point"],
-        ["in", "class", "volcano"],
-        ["has", "name"],
-        ["!has", "customary_ft"]
-      ],
-      "layout": {
-        "icon-image": "triangle",
-        "icon-size": [
-          "interpolate",
-          ["linear", 1],
-          ["zoom"],
-          9,
-          ["case", ["==", ["get", "rank"], 1], 0.9, 0.7],
-          14,
-          ["case", ["==", ["get", "rank"], 1], 1, 0.8]
-        ],
-        "symbol-sort-key": ["to-number", ["get", "rank"]],
-        "text-anchor": "top",
-        "text-field": [
-          "concat",
-          ["coalesce", ["get", "name:en"], ["get", "name"]],
-          "\n",
-          ["get", "ele"],
-          " m"
-        ],
-        "text-font": ["Roboto Condensed Regular", "Noto Sans Regular"],
-        "text-max-width": {"stops": [[12, 4], [15, 4]]},
-        "text-offset": [0, 0.7],
-        "text-size": [
-          "interpolate",
-          ["exponential", 1],
-          ["zoom"],
-          7,
-          9,
-          11,
-          10,
-          13,
-          13
-        ],
-        "visibility": "visible"
-      },
-      "paint": {
-        "icon-color": "hsl(32, 100%, 40%)",
-        "icon-halo-blur": 0.2,
-        "icon-halo-color": "hsl(0, 0%, 100%)",
-        "icon-halo-width": 1,
-        "text-color": "hsl(32, 100%, 40%)",
-        "text-halo-blur": {"stops": [[11, 2], [15, 0]]},
-        "text-halo-color": "hsl(0, 0%, 100%)",
-        "text-halo-width": ["interpolate", ["linear"], ["zoom"], 9, 1, 14, 1.5]
-      }
-    },
-    {
-      "id": "Peak labels (US)",
-      "type": "symbol",
-      "source": "vmtiles",
-      "source-layer": "mountain_peak",
-      "minzoom": 9,
-      "filter": [
-        "all",
-        ["==", "$type", "Point"],
-        ["in", "class", "peak"],
-        ["has", "name"],
-        ["has", "customary_ft"]
-      ],
-      "layout": {
-        "icon-image": "triangle",
-        "icon-size": [
-          "interpolate",
-          ["linear", 1],
-          ["zoom"],
-          9,
-          ["case", ["==", ["get", "rank"], 1], 0.9, 0.7],
-          14,
-          ["case", ["==", ["get", "rank"], 1], 1, 0.8]
-        ],
-        "symbol-sort-key": ["to-number", ["get", "rank"]],
-        "text-anchor": "top",
-        "text-field": [
-          "concat",
-          ["coalesce", ["get", "name:en"], ["get", "name"]],
-          "\n",
-          ["get", "ele_ft"],
-          " ft"
-        ],
-        "text-font": ["Roboto Condensed Regular", "Noto Sans Regular"],
-        "text-max-width": {"stops": [[12, 4], [15, 4]]},
-        "text-offset": [0, 0.7],
-        "text-size": [
-          "interpolate",
-          ["exponential", 1],
-          ["zoom"],
-          7,
-          9,
-          11,
-          10,
-          13,
-          13
-        ],
-        "visibility": "visible"
-      },
-      "paint": {
-        "icon-color": "hsl(23, 57%, 24%)",
-        "icon-halo-blur": 0.2,
-        "icon-halo-color": "hsl(0, 0%, 100%)",
-        "icon-halo-width": 1,
-        "text-color": "hsl(23, 57%, 24%)",
-        "text-halo-blur": {"stops": [[11, 2], [15, 0]]},
-        "text-halo-color": "hsl(0, 0%, 100%)",
-        "text-halo-width": ["interpolate", ["linear"], ["zoom"], 9, 1, 14, 1.5]
-      }
-    },
-    {
-      "id": "Peak labels",
-      "type": "symbol",
-      "source": "vmtiles",
-      "source-layer": "mountain_peak",
-      "minzoom": 9,
-      "filter": [
-        "all",
-        ["==", "$type", "Point"],
-        ["in", "class", "peak"],
-        ["has", "name"],
-        ["!has", "customary_ft"]
+        ["in", "class", "peak", "volcano"],
+        ["has", "name"]
       ],
       "layout": {
         "icon-image": "triangle",
@@ -1859,149 +1678,38 @@
       }
     },
     {
-      "id": "Cliff line",
-      "type": "line",
-      "source": "vmtiles",
-      "source-layer": "mountain_peak",
-      "minzoom": 13,
-      "filter": ["==", "$type", "LineString"],
-      "paint": {
-        "line-color": "hsl(0, 10%, 55%)",
-        "line-opacity": ["interpolate", ["linear"], ["zoom"], 13, 0.5, 17, 0.8],
-        "line-width": ["interpolate", ["linear"], ["zoom"], 15, 0.5, 22, 4]
-      }
-    },
-    {
-      "id": "Cliff",
-      "type": "line",
-      "source": "vmtiles",
-      "source-layer": "mountain_peak",
-      "minzoom": 13,
-      "filter": ["==", "$type", "LineString"],
-      "layout": {"line-join": "miter"},
-      "paint": {
-        "line-color": "hsl(0, 10%, 55%)",
-        "line-dasharray": [0.2, 1],
-        "line-offset": ["interpolate", ["linear"], ["zoom"], 16, 1.2, 22, 5],
-        "line-opacity": ["interpolate", ["linear"], ["zoom"], 13, 0.3, 17, 0.6],
-        "line-width": ["interpolate", ["linear"], ["zoom"], 16, 2, 22, 10]
-      }
-    },
-    {
-      "id": "Station",
+      "id": "poi_z12",
       "type": "symbol",
       "metadata": {},
       "source": "vmtiles",
       "source-layer": "poi",
       "minzoom": 12,
-      "filter": ["all", ["in", "class", "bus", "railway"], ["has", "name"]],
-      "layout": {
-        "icon-anchor": "bottom",
-        "icon-image": [
-          "match",
-          ["get", "subclass"],
-          ["bus_stop", "subway"],
-          ["get", "subclass"],
-          "bus_station",
-          "bus_stop",
-          "station",
-          "railway",
-          ["case", ["has", "subclass"], "tramway", ""]
-        ],
-        "icon-offset": [0, 0],
-        "icon-optional": false,
-        "icon-size": 1,
-        "symbol-sort-key": ["to-number", ["get", "rank"]],
-        "text-anchor": "top",
-        "text-field": "{name}",
-        "text-font": ["Roboto Condensed Regular", "Noto Sans Regular"],
-        "text-line-height": 0.9,
-        "text-max-width": 10,
-        "text-offset": [0, 0.2],
-        "text-optional": true,
-        "text-size": [
-          "interpolate",
-          ["linear", 1],
-          ["zoom"],
-          14,
-          ["match", ["get", "class"], "railway", 11, 10],
-          16,
-          ["match", ["get", "class"], "railway", 13, 11],
-          22,
-          ["match", ["get", "class"], "railway", 16, 14]
-        ],
-        "visibility": "visible"
-      },
-      "paint": {
-        "icon-color": "hsl(223, 97%, 14%)",
-        "icon-halo-blur": 0.5,
-        "icon-halo-color": "hsl(0, 0%, 100%)",
-        "icon-halo-width": 1.5,
-        "icon-opacity": [
-          "step",
-          ["zoom"],
-          1,
-          12,
-          ["match", ["get", "subclass"], "station", 1, 0],
-          13,
-          [
-            "match",
-            ["get", "subclass"],
-            ["station", "bus_station", "subway"],
-            1,
-            0
-          ],
-          14,
-          [
-            "match",
-            ["get", "subclass"],
-            ["station", "bus_station", "bus_stop", "subway", "tram_stop"],
-            1,
-            0
-          ],
-          15,
-          1
-        ],
-        "text-color": "hsl(223, 97%, 14%)",
-        "text-halo-blur": 0.5,
-        "text-halo-color": "hsl(0, 100%, 100%)",
-        "text-halo-width": 1.5,
-        "text-opacity": [
-          "step",
-          ["zoom"],
-          1,
-          12,
-          ["match", ["get", "subclass"], "station", 1, 0],
-          16,
-          1
-        ]
-      }
-    },
-    {
-      "id": "Shop",
-      "type": "symbol",
-      "source": "vmtiles",
-      "source-layer": "poi",
-      "minzoom": 17,
       "filter": [
         "all",
         ["==", "$type", "Point"],
-        ["==", "class", "shop"]
+        [
+          "in",
+          "class",
+          "park",
+          "bus",
+          "railway",
+          "campsite",
+          "harbor",
+          "car",
+          "hospital",
+          "attraction"
+        ]
       ],
       "layout": {
-        "icon-allow-overlap": false,
         "icon-anchor": "bottom",
-        "icon-image": "shop",
-        "icon-offset": [0, 0],
-        "icon-optional": false,
-        "symbol-sort-key": ["to-number", ["get", "rank"]],
-        "text-allow-overlap": false,
+        "icon-image": "{class}",
         "text-anchor": "top",
         "text-field": "{name}",
-        "text-font": ["Roboto Condensed Regular", "Noto Sans Regular"],
-        "text-optional": true,
-        "text-size": ["interpolate", ["linear"], ["zoom"], 16, 11, 22, 14],
-        "visibility": "visible"
+        "text-font": ["Roboto Regular", "Noto Sans Regular"],
+        "text-max-width": 9,
+        "text-padding": 2,
+        "text-size": 12,
+        "text-optional": true
       },
       "paint": {
         "icon-color": "hsl(27, 97%, 14%)",
@@ -2015,8 +1723,9 @@
       }
     },
     {
-      "id": "Sport",
+      "id": "poi_z14",
       "type": "symbol",
+      "metadata": {},
       "source": "vmtiles",
       "source-layer": "poi",
       "minzoom": 14,
@@ -2026,589 +1735,73 @@
         [
           "in",
           "class",
-          "fitness_centre",
+          "shop",
+          "fast_food",
+          "grocery",
+          "cafe",
+          "alcohol_shop",
+          "bar",
+          "beer",
           "golf",
-          "pitch",
-          "playground",
-          "sports_centre",
           "stadium",
           "swimming",
-          "swimming_pool",
-          "water_park"
-        ],
-        ["has", "name"]
+          "fuel"
+        ]
       ],
       "layout": {
-        "icon-allow-overlap": false,
         "icon-anchor": "bottom",
-        "icon-image": [
-          "coalesce",
-          ["image", ["get", "subclass"]],
-          ["image", ["get", "class"]],
-          ["image", ""]
-        ],
-        "icon-optional": false,
-        "symbol-sort-key": [
-          "case",
-          ["==", ["get", "class"], "stadium"],
-          0,
-          ["to-number", ["get", "rank"]]
-        ],
-        "text-allow-overlap": false,
+        "icon-image": "{class}",
         "text-anchor": "top",
         "text-field": "{name}",
-        "text-font": ["Roboto Condensed Regular", "Noto Sans Regular"],
-        "text-offset": [
-          "match",
-          ["get", "class"],
-          "sports_centre",
-          ["literal", [0, -1]],
-          "fitness_centre",
-          ["literal", [0, -1]],
-          ["literal", [0, 0]]
-        ],
-        "text-optional": true,
-        "text-size": ["interpolate", ["linear"], ["zoom"], 16, 11, 22, 14],
-        "visibility": "visible"
+        "text-font": ["Roboto Regular", "Noto Sans Regular"],
+        "text-max-width": 9,
+        "text-padding": 2,
+        "text-size": 12,
+        "text-optional": true
       },
       "paint": {
         "icon-color": "hsl(27, 97%, 14%)",
         "icon-halo-blur": 0.5,
         "icon-halo-color": "hsl(0, 0%, 100%)",
         "icon-halo-width": 1.5,
-        "icon-opacity": [
-          "step",
-          ["zoom"],
-          1,
-          14,
-          [
-            "match",
-            ["get", "class"],
-            ["stadium", "swimming", "swimming_pool", "water_park"],
-            1,
-            0
-          ],
-          15,
-          [
-            "match",
-            ["get", "class"],
-            [
-              "fitness_centre",
-              "golf",
-              "sports_centre",
-              "stadium",
-              "swimming",
-              "swimming_pool",
-              "water_park"
-            ],
-            1,
-            0
-          ],
-          17,
-          1
-        ],
         "text-color": "hsl(27, 97%, 14%)",
         "text-halo-blur": 0.5,
-        "text-halo-color": "hsl(0, 0%, 100%)",
-        "text-halo-width": 1.5,
-        "text-opacity": [
-          "step",
-          ["zoom"],
-          1,
-          14,
-          0,
-          15,
-          [
-            "match",
-            ["get", "class"],
-            ["stadium", "swimming", "swimming_pool", "water_park"],
-            1,
-            0
-          ],
-          16,
-          [
-            "match",
-            ["get", "class"],
-            [
-              "fitness_centre",
-              "golf",
-              "sports_centre",
-              "stadium",
-              "swimming",
-              "swimming_pool",
-              "water_park"
-            ],
-            1,
-            0
-          ],
-          17,
-          1
-        ]
-      }
-    },
-    {
-      "id": "Transport",
-      "type": "symbol",
-      "metadata": {},
-      "source": "vmtiles",
-      "source-layer": "poi",
-      "minzoom": 14,
-      "filter": [
-        "all",
-        ["==", "$type", "Point"],
-        [
-          "in",
-          "class",
-          "aerialway",
-          "bicycle",
-          "bicycle_rental",
-          "bicycle_parking",
-          "car",
-          "car_rental",
-          "car_repair",
-          "cycle_barrier",
-          "ferry_terminal",
-          "harbor",
-          "motorcycle_parking",
-          "parking",
-          "parking_garage",
-          "parking_paid",
-          "charging_station",
-          "taxi"
-        ]
-      ],
-      "layout": {
-        "icon-anchor": "bottom",
-        "icon-image": [
-          "match",
-          ["get", "class"],
-          [
-            "aerialway",
-            "bicycle",
-            "bicycle_rental",
-            "bicycle_parking",
-            "car",
-            "car_rental",
-            "car_repair",
-            "cycle_barrier",
-            "ferry_terminal",
-            "harbor",
-            "motorcycle_parking",
-            "parking",
-            "parking_garage",
-            "parking_paid",
-            "charging_station",
-            "taxi"
-          ],
-          ["get", "class"],
-          ["case", ["has", "class"], "dot", ""]
-        ],
-        "icon-offset": [0, 0],
-        "icon-optional": false,
-        "icon-size": ["interpolate", ["linear"], ["zoom"], 14, 0.8, 22, 1],
-        "symbol-sort-key": ["to-number", ["get", "rank"]],
-        "text-anchor": "top",
-        "text-field": "{name}",
-        "text-font": ["Roboto Condensed Regular", "Noto Sans Regular"],
-        "text-line-height": 0.9,
-        "text-max-width": 10,
-        "text-offset": [0, 0],
-        "text-optional": true,
-        "text-size": ["interpolate", ["linear"], ["zoom"], 16, 11, 22, 14],
-        "visibility": "visible"
-      },
-      "paint": {
-        "icon-color": "hsl(27, 97%, 14%)",
-        "icon-halo-blur": 0.5,
-        "icon-halo-color": "hsl(0, 0%, 100%)",
-        "icon-halo-width": 1.5,
-        "icon-opacity": [
-          "step",
-          ["zoom"],
-          1,
-          14,
-          [
-            "match",
-            ["get", "class"],
-            ["aerialway", "ferry_terminal", "harbor"],
-            1,
-            0
-          ],
-          15,
-          [
-            "match",
-            ["get", "class"],
-            ["aerialway", "ferry_terminal", "harbor"],
-            1,
-            0
-          ],
-          16,
-          [
-            "match",
-            ["get", "class"],
-            ["aerialway", "ferry_terminal", "harbor", "parking"],
-            1,
-            0
-          ],
-          17,
-          1
-        ],
-        "text-color": "hsl(27, 97%, 14%)",
-        "text-halo-blur": 0.5,
-        "text-halo-color": "hsl(0, 0%, 100%)",
-        "text-halo-width": 1.5,
-        "text-opacity": [
-          "step",
-          ["zoom"],
-          1,
-          14,
-          0,
-          15,
-          [
-            "match",
-            ["get", "class"],
-            ["aerialway", "ferry_terminal", "harbor"],
-            1,
-            0
-          ],
-          16,
-          [
-            "match",
-            ["get", "class"],
-            ["aerialway", "ferry_terminal", "harbor", "parking"],
-            1,
-            0
-          ],
-          17,
-          1
-        ]
-      }
-    },
-    {
-      "id": "Food",
-      "type": "symbol",
-      "source": "vmtiles",
-      "source-layer": "poi",
-      "minzoom": 15,
-      "filter": [
-        "all",
-        ["==", "$type", "Point"],
-        [
-          "all",
-          ["in", "class", "bar", "beer", "cafe", "fast_food", "restaurant", "drinking_water"]
-        ]
-      ],
-      "layout": {
-        "icon-allow-overlap": false,
-        "icon-anchor": "bottom",
-        "icon-image": [
-          "match",
-          ["get", "class"],
-          ["bar", "beer", "cafe", "fast_food", "restaurant", "drinking_water"],
-          ["get", "class"],
-          ""
-        ],
-        "icon-optional": false,
-        "symbol-sort-key": ["to-number", ["get", "rank"]],
-        "text-allow-overlap": false,
-        "text-anchor": "top",
-        "text-field": "{name}",
-        "text-font": ["Roboto Condensed Regular", "Noto Sans Regular"],
-        "text-optional": true,
-        "text-size": {"stops": [[16, 11], [22, 14]]},
-        "visibility": "visible"
-      },
-      "paint": {
-        "icon-color": "hsl(27, 97%, 14%)",
-        "icon-halo-blur": 0.5,
-        "icon-halo-color": "hsl(0, 0%, 100%)",
-        "icon-halo-width": 1.5,
-        "icon-opacity": [
-          "step",
-          ["zoom"],
-          1,
-          15,
-          ["match", ["get", "class"], ["restaurant"], 1, 0],
-          16,
-          1
-        ],
-        "text-color": "hsl(27, 97%, 14%)",
-        "text-halo-blur": 0.5,
-        "text-halo-color": "hsl(0, 0%, 100%)",
-        "text-halo-width": 1.5,
-        "text-opacity": [
-          "step",
-          ["zoom"],
-          1,
-          15,
-          0,
-          16,
-          ["match", ["get", "class"], ["restaurant"], 1, 0],
-          17,
-          1
-        ]
-      }
-    },
-    {
-      "id": "Park labels",
-      "type": "symbol",
-      "source": "vmtiles",
-      "source-layer": "poi",
-      "minzoom": 14,
-      "filter": ["all", ["==", "class", "park"], ["has", "name"]],
-      "layout": {
-        "icon-anchor": "bottom",
-        "icon-image": "park",
-        "symbol-sort-key": ["to-number", ["get", "rank"]],
-        "text-anchor": "top",
-        "text-field": "{name}",
-        "text-font": ["Roboto Condensed Regular", "Noto Sans Regular"],
-        "text-max-width": 6,
-        "text-optional": true,
-        "text-padding": 30,
-        "text-size": ["interpolate", ["linear"], ["zoom"], 16, 11, 22, 14],
-        "text-transform": "none",
-        "visibility": "visible"
-      },
-      "paint": {
-        "icon-color": "hsl(99, 64%, 25%)",
-        "icon-halo-blur": 0.2,
-        "icon-halo-color": "hsl(0, 0%, 100%)",
-        "icon-halo-width": 1.5,
-        "text-color": "hsl(99, 64%, 25%)",
-        "text-halo-blur": 0.2,
         "text-halo-color": "hsl(0, 0%, 100%)",
         "text-halo-width": 1.5
       }
     },
     {
-      "id": "Healthcare",
+      "id": "poi_z16",
       "type": "symbol",
       "metadata": {},
       "source": "vmtiles",
       "source-layer": "poi",
-      "minzoom": 14,
+      "minzoom": 16,
       "filter": [
         "all",
         ["==", "$type", "Point"],
-        ["in", "class", "hospital", "pharmacy"],
-        ["has", "name"]
+        ["in", "class", "cemetery"]
       ],
       "layout": {
-        "icon-anchor": "center",
-        "icon-image": [
-          "match",
-          ["get", "class"],
-          ["hospital", "pharmacy"],
-          ["get", "class"],
-          ""
-        ],
-        "icon-optional": false,
-        "symbol-sort-key": [
-          "case",
-          ["==", ["get", "subclass"], "hospital"],
-          0,
-          ["to-number", ["get", "rank"]]
-        ],
+        "icon-anchor": "bottom",
+        "icon-image": "{class}",
         "text-anchor": "top",
         "text-field": "{name}",
-        "text-font": ["Roboto Condensed Regular", "Noto Sans Regular"],
-        "text-max-width": 8,
-        "text-offset": [0, 0.8],
-        "text-optional": true,
+        "text-font": ["Roboto Regular", "Noto Sans Regular"],
+        "text-max-width": 9,
         "text-padding": 2,
-        "text-size": [
-          "interpolate",
-          ["exponential", 1],
-          ["zoom"],
-          16,
-          11,
-          22,
-          14
-        ],
-        "visibility": "visible"
-      },
-      "paint": {
-        "icon-color": "hsl(6, 93%, 28%)",
-        "icon-halo-blur": 0.5,
-        "icon-halo-color": "hsl(0,0%,100%)",
-        "icon-halo-width": 1.5,
-        "icon-opacity": [
-          "step",
-          ["zoom"],
-          0,
-          14,
-          ["match", ["get", "class"], ["hospital"], 1, 0],
-          17,
-          1
-        ],
-        "text-color": "hsl(6, 93%, 28%)",
-        "text-halo-blur": 0.5,
-        "text-halo-color": "hsl(0,0%,100%)",
-        "text-halo-width": 1.5,
-        "text-opacity": [
-          "step",
-          ["zoom"],
-          0,
-          14,
-          ["match", ["get", "class"], ["hospital"], 1, 0],
-          17,
-          1
-        ]
-      }
-    },
-    {
-      "id": "Tourism",
-      "type": "symbol",
-      "source": "vmtiles",
-      "source-layer": "poi",
-      "minzoom": 14,
-      "filter": [
-        "all",
-        ["==", "$type", "Point"],
-        [
-          "in",
-          "class",
-          "attraction",
-          "campsite",
-          "lodging",
-          "picnic_site",
-          "shelter",
-          "town_hall",
-          "zoo",
-          "toilets"
-        ],
-        ["!in", "subclass", "dormitory"]
-      ],
-      "layout": {
-        "icon-allow-overlap": false,
-        "icon-anchor": "bottom",
-        "icon-image": [
-          "match",
-          ["get", "class"],
-          [
-            "attraction",
-            "campsite",
-            "lodging",
-            "picnic_site",
-            "shelter",
-            "town_hall",
-            "zoo",
-            "toilets"
-          ],
-          ["get", "class"],
-          ""
-        ],
-        "icon-offset": [0, 0],
-        "icon-optional": false,
-        "icon-size": 1,
-        "symbol-sort-key": ["to-number", ["get", "rank"]],
-        "text-allow-overlap": false,
-        "text-anchor": "top",
-        "text-field": "{name}",
-        "text-font": ["Roboto Condensed Regular", "Noto Sans Regular"],
-        "text-optional": true,
-        "text-size": ["interpolate", ["linear"], ["zoom"], 16, 11, 22, 14],
-        "visibility": "visible"
+        "text-size": 12,
+        "text-optional": true
       },
       "paint": {
         "icon-color": "hsl(27, 97%, 14%)",
         "icon-halo-blur": 0.5,
         "icon-halo-color": "hsl(0, 0%, 100%)",
         "icon-halo-width": 1.5,
-        "icon-opacity": [
-          "step",
-          ["zoom"],
-          0,
-          14,
-          ["match", ["get", "class"], ["attraction", "campsite", "zoo"], 1, 0],
-          16,
-          1
-        ],
         "text-color": "hsl(27, 97%, 14%)",
         "text-halo-blur": 0.5,
         "text-halo-color": "hsl(0, 0%, 100%)",
-        "text-halo-width": 1.5,
-        "text-opacity": [
-          "step",
-          ["zoom"],
-          0,
-          14,
-          ["match", ["get", "class"], ["attraction", "campsite", "zoo"], 1, 0],
-          16,
-          1
-        ]
-      }
-    },
-    {
-      "id": "Culture",
-      "type": "symbol",
-      "source": "vmtiles",
-      "source-layer": "poi",
-      "minzoom": 14,
-      "filter": [
-        "all",
-        ["==", "$type", "Point"],
-        [
-          "all",
-          [
-            "in",
-            "class",
-            "art_gallery",
-            "cemetery",
-            "monument",
-            "museum",
-            "place_of_worship"
-          ],
-          ["has", "name"]
-        ]
-      ],
-      "layout": {
-        "icon-allow-overlap": false,
-        "icon-anchor": "bottom",
-        "icon-image": [
-          "coalesce",
-          ["image", ["get", "subclass"]],
-          ["image", ["get", "class"]],
-          ["image", "square"]
-        ],
-        "icon-optional": false,
-        "symbol-sort-key": ["to-number", ["get", "rank"]],
-        "text-allow-overlap": false,
-        "text-anchor": "top",
-        "text-field": "{name}",
-        "text-font": ["Roboto Condensed Regular", "Noto Sans Regular"],
-        "text-optional": true,
-        "text-size": ["interpolate", ["linear"], ["zoom"], 16, 11, 22, 14],
-        "visibility": "visible"
-      },
-      "paint": {
-        "icon-color": "hsl(27, 97%, 14%)",
-        "icon-halo-blur": 0.5,
-        "icon-halo-color": "hsl(0, 0%, 100%)",
-        "icon-halo-width": 1.5,
-        "icon-opacity": [
-          "step",
-          ["zoom"],
-          0,
-          14,
-          ["match", ["get", "class"], ["museum", "place_of_worship"], 1, 0],
-          16,
-          1
-        ],
-        "text-color": "hsl(27, 97%, 14%)",
-        "text-halo-blur": 0.5,
-        "text-halo-color": "hsl(0, 0%, 100%)",
-        "text-halo-width": 1.5,
-        "text-opacity": [
-          "step",
-          ["zoom"],
-          0,
-          14,
-          ["match", ["get", "class"], ["museum", "place_of_worship"], 1, 0],
-          16,
-          1
-        ]
+        "text-halo-width": 1.5
       }
     }
   ],
